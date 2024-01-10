@@ -4,6 +4,7 @@ class Node:
         self.next = None
         self.prev = None
 
+
 class DBLLinkedList:
     # constructor
     def __init__(self, value):
@@ -11,7 +12,7 @@ class DBLLinkedList:
         self.head = new_node
         self.tail = new_node
         self.length = 1
-    
+
     # Append
     def append(self, value):
         new_node = Node(value)
@@ -23,6 +24,7 @@ class DBLLinkedList:
         self.tail = new_node
         self.length += 1
         return True
+
     # Pop
     def pop(self):
         if self.length == 0:
@@ -34,10 +36,9 @@ class DBLLinkedList:
         self.tail = self.tail.prev
         self.tail.next = None
         temp.prev = None
-        self.length -=1
+        self.length -= 1
         return temp
-    
-        
+
     # print Doubly linked list
     def print(self):
         temp = self.head
@@ -49,5 +50,4 @@ class DBLLinkedList:
 my_dll = DBLLinkedList(2)
 my_dll.append(3)
 my_dll.pop()
-my_dll.print()        
-        
+my_dll.print()
