@@ -59,3 +59,29 @@ class Solution(object):
 
         # If no pair of numbers sum up to the target, we return None
         return None
+
+
+# group anagrams
+class Solution(object):
+    def groupAnagrams(self, strs):
+        """
+        :type strs: List[str]
+        :rtype: List[List[str]]
+        """
+        # Create a dictionary to store the groups
+        groups = {}
+
+        # Loop through each string in the input list
+        for s in strs:
+            # Sort the string and use it as a key
+            key = "".join(sorted(s))
+
+            # If the key is in the dictionary, append the string to that list
+            if key in groups:
+                groups[key].append(s)
+            # If the key is not in the dictionary, create a new list with the string
+            else:
+                groups[key] = [s]
+
+        # Return the grouped anagrams
+        return list(groups.values())
