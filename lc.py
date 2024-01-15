@@ -102,3 +102,23 @@ class Solution(object):
             if char == s[s_index]:
                 s_index += 1
         return s_index == len(s)
+
+    # valid palindrome:
+
+    def isPalindrome(self, s):
+        """
+        :type s: str
+        :rtype: bool
+        """
+        # convert the entire string into lower case
+        # loop through the entire string from the back
+        # if the ascii value of the letter is between 97-122 and 48-57 add to a temp string
+        # compare if the temp string == final_string backwards
+        s = s.lower()
+        final_string = ""
+        for i in range(len(s) - 1, -1, -1):
+            if (ord(s[i]) <= 122 and ord(s[i]) >= 97) or (
+                ord(s[i]) <= 57 and ord(s[i]) >= 48
+            ):
+                final_string += s[i]
+        return final_string == final_string[::-1]
