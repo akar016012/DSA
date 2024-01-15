@@ -122,3 +122,23 @@ class Solution(object):
             ):
                 final_string += s[i]
         return final_string == final_string[::-1]
+
+    # valid parentheses:
+
+
+class Solution(object):
+    def isValid(self, s):
+        """
+        :type s: str
+        :rtype: bool
+        """
+        stack = []
+        hashmap = {"(": ")", "{": "}", "[": "]"}
+
+        for char in s:
+            if char in hashmap:
+                stack.append(char)
+            elif len(stack) == 0 or hashmap[stack.pop()] != char:
+                return False
+
+        return len(stack) == 0
