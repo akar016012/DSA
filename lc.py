@@ -85,3 +85,20 @@ class Solution(object):
 
         # Return the grouped anagrams
         return list(groups.values())
+
+
+# subsequence
+class Solution(object):
+    def isSubsequence(self, s, t):
+        """
+        :type s: str
+        :type t: str
+        :rtype: bool
+        """
+        s_index = 0
+        for char in t:
+            if s_index == len(s):
+                break
+            if char == s[s_index]:
+                s_index += 1
+        return s_index == len(s)

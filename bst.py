@@ -30,3 +30,8 @@ class BinarySearchTree:
                     temp.right = new_node
                     return True
                 temp = temp.right
+                
+    # Contains
+    def contains(self, value):
+        
+
