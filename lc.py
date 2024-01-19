@@ -123,9 +123,8 @@ class Solution(object):
                 final_string += s[i]
         return final_string == final_string[::-1]
 
-    # valid parentheses:
 
-
+# valid parentheses:
 class Solution(object):
     def isValid(self, s):
         """
@@ -142,3 +141,21 @@ class Solution(object):
                 return False
 
         return len(stack) == 0
+
+
+# Remove element
+class Solution(object):
+    def removeElement(self, nums, val):
+        """
+        :type nums: List[int]
+        :type val: int
+        :rtype: int
+        """
+        # loop through the nums and remove the val
+        i = 0
+        while i < len(nums):
+            if nums[i] == val:
+                nums.remove(nums[i])
+            else:
+                i += 1
+        return len(nums)
