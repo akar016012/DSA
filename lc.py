@@ -159,3 +159,27 @@ class Solution(object):
             else:
                 i += 1
         return len(nums)
+
+
+# Best Time to Buy and Sell Stock
+class Solution(object):
+    def maxProfit(self, prices):
+        """
+        :type prices: List[int]
+        :rtype: int
+        """
+        # loop through the array and find the least price
+        # loop through the array with index after the least price index and find the highest number
+        # return the difference between the largest and the smallest number
+        l, r = 0, 1
+        maxP = 0
+        while r < len(prices):
+            # profitable?
+            if prices[l] < prices[r]:
+                profit = prices[r] - prices[l]
+                maxP = max(maxP, profit)
+            # notProfitable?
+            else:
+                l = r
+            r += 1
+        return maxP
