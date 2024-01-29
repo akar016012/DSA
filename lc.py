@@ -204,3 +204,29 @@ class Solution(object):
             prev = curr
             curr = temp
         return prev
+
+
+# TOP K Elements
+class Solution(object):
+    def topKFrequent(self, nums, k):
+        """
+        :type nums: List[int]
+        :type k: int
+        :rtype: List[int]
+        """
+        # loop through the nums and store it in a hash map with value as number of times it occured in an array
+        # {
+        # 1 : 3
+        # 2 : 2
+        # 3 : 1
+        # }
+        # return the the topk highest value key
+        hashmap = {}
+        for i in range(len(nums)):
+            if nums[i] in hashmap:
+                hashmap[nums[i]] += 1
+            else:
+                hashmap[nums[i]] = 1
+
+        # Now we need to sort the hashmap based on values and return the top k keys
+        return sorted(hashmap, key=hashmap.get, reverse=True)[:k]
